@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Product Sans Infanity.ttf",
+      "sha1": "3c445e772a41a5c68eccd7a3d352f3c1abff4ad1"
+    },
+    {
+      "path": "src/assets/fonts/Sf Pro Display Bold.OTF",
+      "sha1": "100e7b7fd24facbca4db38e6d4d7e01c73b82818"
+    },
+    {
+      "path": "src/assets/fonts/Sf Pro Display Medium.OTF",
+      "sha1": "a5f5e08dd38cac2f857fb7510f7e92a2399b6f5c"
+    },
+    {
+      "path": "src/assets/fonts/Sf Pro Display Regular.OTF",
+      "sha1": "e19df199e78d296e5b6491d4832a76756532ed43"
+    }
+  ]
+}

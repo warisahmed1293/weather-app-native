@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <application
       android:name=".MainApplication"
@@ -16,11 +19,15 @@
         android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
         android:launchMode="singleTask"
         android:windowSoftInputMode="adjustResize"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
+        <meta-data android:name="android.max_aspect" android:value="2.1" />
+    <meta-data android:name="android.notch_support" android:value="true" />
+    <meta-data android:name="android.supportsRtl" android:value="true" />
       </activity>
     </application>
 </manifest>

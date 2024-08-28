@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
         width: '100%',
         position: 'absolute',
         bottom: 0,
+        elevation: 10,
     },
     gradient: {
         borderTopRightRadius: 40,

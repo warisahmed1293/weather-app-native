@@ -6,6 +6,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from '../screens/Home/Home';
 import Favourite from '../screens/Favourite/Favourite';
 import Account from '../screens/Account/Account';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const HomeStack = createNativeStackNavigator();
+
+
 
 const Tab = createBottomTabNavigator();
 

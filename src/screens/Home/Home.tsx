@@ -1,17 +1,19 @@
-import { ImageBackground, StyleSheet, View, Dimensions, Image } from 'react-native';
+import { ImageBackground, StyleSheet, View, Image } from 'react-native';
 import React from 'react';
 import ForcastWeather from '../../components/ForcastWeather';
 import houseImage from '../../assets/houseImage.png';
+import dayBG from '../../assets/dayBG.png'
+import nightBG from '../../assets/nightBG.png'
 import CurrentLocationWeather from '../../components/CurrentLocationWeather';
 
 
-const image = { uri: 'https://i.ibb.co/G7g9H17/Image-1.png' };
 const Home = () => {
     return (
         <>
             <View style={styles.container}>
                 <ImageBackground
-                    source={image}
+                    blurRadius={0}
+                    source={dayBG}
                     style={styles.backgroundImage}
                     resizeMode="cover"  // Ensure the image covers the entire container
                 >
@@ -20,6 +22,7 @@ const Home = () => {
                     </View>
                     <View style={styles.overlay}>
                         <Image
+                            blurRadius={0}
                             source={houseImage}
                             style={styles.overlayImage}
                         />

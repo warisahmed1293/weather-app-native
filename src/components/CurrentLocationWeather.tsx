@@ -73,7 +73,7 @@ const CurrentLocationWeather = () => {
                     <Text style={{ fontSize: 70, color: 'white', fontFamily: 'Product Sans Infanity' }}>{weatherData.current.temp_c}°C</Text>
                     <Text style={{ fontSize: 15, color: 'lightgrey', fontWeight: '500', fontFamily: 'Product Sans Infanity' }}>{weatherData.current.condition.text}</Text>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: 100, fontFamily: 'Product Sans Infanity' }}>
-                        <Text style={{ fontSize: 15, fontWeight: '800', color: 'white', fontFamily: 'Product Sans Infanity' }}>{weatherData.current.dewpoint_c}°C</Text>
+                        <Text style={{ fontSize: 15, fontWeight: '800', color: 'white', fontFamily: 'Product Sans Infanity' }}>{weatherData.current.humidity}%</Text>
                         <Text style={{ fontSize: 15, fontWeight: '800', color: 'white', fontFamily: 'Product Sans Infanity' }}>{weatherData.current.wind_kph}kph</Text>
                     </View>
                 </View>

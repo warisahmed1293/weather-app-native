@@ -1,8 +1,6 @@
-// components/HalfScreenModal.js
 
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image, ImageBackground } from 'react-native';
 
 const { height } = Dimensions.get('window');
 
@@ -14,30 +12,18 @@ const HalfScreenModal = ({ data }) => {
         return date.toLocaleDateString('en-US', options);
     };
     return (
-        <View style={styles.bottomContainer}>
-            <LinearGradient
-                colors={['#C427FB', '#612FAB', '#7582F4']}
-                style={styles.gradient}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-            >
-                <View style={styles.touchable}>
-                    <Text style={styles.title}>3-Day Weather Forecast</Text>
-                    <View style={styles.line} />
-                    <View style={styles.forecastContainer}>
-                        {data.forecast.forecastday.map((day, index) => (
-                            <TouchableOpacity key={index} style={styles.forecastItem}>
-                                <Text style={styles.date}>{getDayOfWeek(day.date)}</Text>
-                                <Image
-                                    className="w-[45px] h-[45px] mt-[6px]"
-                                    source={{ uri: `https:${day.day.condition.icon}` }}
-                                />
-                                <Text style={styles.temp}>{day.day.avgtemp_c}°C</Text>
-                            </TouchableOpacity>
-                        ))}
-                    </View>
-                </View>
-            </LinearGradient>
+
+        <View style={styles.forecastContainer}>
+            {data.forecast.forecastday.map((day, index) => (
+                <TouchableOpacity key={index} style={styles.forecastItem}>
+                    <Text style={styles.date}>{getDayOfWeek(day.date)}</Text>
+                    <Image
+                        className="w-[45px] h-[45px] mt-[6px]"
+                        source={{ uri: `https:${day.day.condition.icon}` }}
+                    />
+                    <Text style={styles.temp}>{day.day.avgtemp_c}°C</Text>
+                </TouchableOpacity>
+            ))}
         </View>
     );
 };
@@ -49,6 +35,14 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         elevation: 10,
+        overflow: 'hidden',
+
+    },
+    backgroundImage: {
+        flex: 1,
+        borderTopRightRadius: 40,
+        borderTopLeftRadius: 40,
+        overflow: 'hidden',
     },
     gradient: {
         borderTopRightRadius: 40,

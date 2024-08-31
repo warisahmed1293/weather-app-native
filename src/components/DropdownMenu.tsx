@@ -1,17 +1,24 @@
-// DropdownMenu.js
 import React, { useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Modal, Pressable } from 'react-native';
 
-const DropdownMenu = ({ visible, onClose }) => {
+const DropdownMenu = ({ visible, onClose, clearStorage }) => {
     useEffect(() => {
         let timer;
         if (visible) {
             timer = setTimeout(() => {
                 onClose();
-            }, 2000);
+            }, 5000);
         }
         return () => clearTimeout(timer);
     }, [visible, onClose]);
+
+    const handleOptionSelect = (action) => {
+        action();
+        setTimeout(() => {
+            onClose();
+        }, 500);
+    };
+
     return (
         <Modal
             transparent={true}
@@ -21,13 +28,13 @@ const DropdownMenu = ({ visible, onClose }) => {
         >
             <Pressable style={styles.overlay} onPress={onClose}>
                 <View style={styles.menu}>
-                    <TouchableOpacity onPress={() => alert('Option 1')}>
-                        <Text style={styles.menuItem}>Option 1</Text>
+                    <TouchableOpacity onPress={() => handleOptionSelect(clearStorage)}>
+                        <Text style={styles.menuItem}>Clear History</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => alert('Option 2')}>
+                    <TouchableOpacity onPress={() => handleOptionSelect(() => alert('Option 2'))}>
                         <Text style={styles.menuItem}>Option 2</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => alert('Option 3')}>
+                    <TouchableOpacity onPress={() => handleOptionSelect(() => alert('Option 3'))}>
                         <Text style={styles.menuItem}>Option 3</Text>
                     </TouchableOpacity>
                 </View>
@@ -38,8 +45,10 @@ const DropdownMenu = ({ visible, onClose }) => {
 
 const styles = StyleSheet.create({
     overlay: {
-        justifyContent: 'flex-start',
-        alignItems: 'flex-end',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
     },
     menu: {
         backgroundColor: 'white',
@@ -50,7 +59,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 4,
         elevation: 5,
-        height: 500,
     },
     menuItem: {
         padding: 10,

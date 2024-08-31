@@ -1,4 +1,4 @@
-export const fetchCurrentWeather = async (city) => {
+export const fetchCurrentWeather = async (city: any) => {
     const url = `https://weatherapi-com.p.rapidapi.com/search.json?q=${city}`;
     const options = {
         method: 'GET',
@@ -17,7 +17,7 @@ export const fetchCurrentWeather = async (city) => {
     }
 };
 
-export const fetchForecastWeather = async (city) => {
+export const fetchForecastWeather = async (city: any) => {
     const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3`;
     const options = {
         method: 'GET',
@@ -37,7 +37,7 @@ export const fetchForecastWeather = async (city) => {
 };
 
 
-export const fetchWeatherByCoordinates = async (latitude, longitude) => {
+export const fetchWeatherByCoordinates = async (latitude: any, longitude: any) => {
     const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${latitude},${longitude}`;
     const options = {
         method: 'GET',
@@ -58,7 +58,7 @@ export const fetchWeatherByCoordinates = async (latitude, longitude) => {
 };
 
 
-export const fetchSearchWeather = async (city) => {
+export const fetchSearchWeather = async (city: any) => {
     const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${city}`;
     const options = {
         method: 'GET',

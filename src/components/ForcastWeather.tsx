@@ -1,14 +1,19 @@
 // components/ForcastWeather.js
 
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator, Alert } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator, Alert, ImageBackground, Dimensions } from 'react-native';
 import HalfScreenModal from './HalfScreenModal';
 import { Location } from '../constant/Location';
+import backgroundImage from '../assets/mainBG.png'
+
+
+const { height } = Dimensions.get('window');
 
 const ForcastWeather = () => {
     const [forecast, setForecast] = useState(null);
     const [loading, setLoading] = useState(true);
     const [location, setLocation] = useState(null);
+
 
     useEffect(() => {
         const fetchLocationAndWeather = async () => {
@@ -63,15 +68,9 @@ const ForcastWeather = () => {
         );
     }
 
-    if (!forecast) {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.errorText}>No forecast data available</Text>
-            </View>
-        );
-    }
 
     return (
+
         <HalfScreenModal data={forecast} />
     );
 };
@@ -85,6 +84,71 @@ const styles = StyleSheet.create({
     errorText: {
         color: 'red',
         fontFamily: 'Product Sans Infanity',
+    },
+    bottomContainer: {
+        height: height * 0.45,
+        width: '100%',
+        position: 'absolute',
+        bottom: 0,
+        elevation: 10,
+        overflow: 'hidden',
+
+    },
+    backgroundImage: {
+        flex: 1,
+        borderTopRightRadius: 40,
+        borderTopLeftRadius: 40,
+        overflow: 'hidden',
+    },
+    gradient: {
+        borderTopRightRadius: 40,
+        borderTopLeftRadius: 40,
+    },
+    touchable: {
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        bottom: 50,
+    },
+    title: {
+        fontSize: 18,
+        fontWeight: 'condensedBold',
+        color: '#fff',
+        fontFamily: 'Product Sans Infanity',
+    },
+    forecastContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: '100%',
+    },
+    forecastItem: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#48319d',
+        height: 150,
+        width: 60,
+        borderRadius: 100,
+        elevation: 10,
+    },
+    date: {
+        color: '#fff',
+        fontFamily: 'Product Sans Infanity',
+        fontWeight: 'bold',
+    },
+    temp: {
+        color: '#fff',
+        fontFamily: 'Product Sans Infanity',
+        marginTop: 10,
+    },
+    condition: {
+        color: '#fff',
+    },
+    line: {
+        height: 1,
+        width: '100%',
+        backgroundColor: 'white',
+        marginVertical: 20,
+        elevation: 3,
     },
 });
 

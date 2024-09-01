@@ -5227,6 +5227,13 @@ react-native-animatable@^1.4.0:
   dependencies:
     prop-types "^15.8.1"
 
+react-native-awesome-alerts@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/react-native-awesome-alerts/-/react-native-awesome-alerts-2.0.0.tgz"
+  integrity sha512-ZRBNnDfpE+aQCtXXnQcfGLqwzZ53Q45CNkQI4hOiF8/9JPuCyMUQL2aqtiypnLpCIX+CB28Jcx1KVJ6/reaZsg==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-native-geolocation-service@^5.3.1:
   version "5.3.1"
   resolved "https://registry.npmjs.org/react-native-geolocation-service/-/react-native-geolocation-service-5.3.1.tgz"

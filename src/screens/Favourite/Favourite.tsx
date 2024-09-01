@@ -8,7 +8,7 @@ import { debounce } from 'lodash';
 import { fetchCurrentWeather, fetchSearchWeather } from '../../constant/weatherAPI';
 import mainBG from '../../assets/mainBG.png';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import AwesomeAlert from 'react-native-awesome-alerts';
 import cloudy_weather from '../../assets/lottie/cloudy_weather.json';
 import partialy_cloudy from '../../assets/lottie/partialy_cloudy.json';
 import rain from '../../assets/lottie/rain.json';
@@ -55,17 +55,24 @@ const Favourite = ({ navigation }) => {
     const [location, setLocation] = useState<Location[]>([]);
     const [weather, setWeather] = useState<Weather | null>(null);
     const [weatherHistory, setWeatherHistory] = useState<Weather[]>([]);
+    const [showAlert, setShowAlert] = useState(false);
+
+    const handleAlert = () => {
+        setShowAlert(true);
+    };
 
     const clearLocalStorage = async () => {
         try {
             await AsyncStorage.clear();
+
             setWeatherHistory([]);
             setWeather(null);
-            Alert.alert('Success', 'Local storage cleared successfully.');
+            handleAlert();
         } catch (error) {
             console.error('Error clearing local storage:', error);
         }
     };
+
 
     useEffect(() => {
         const getStoredWeather = async () => {
@@ -176,6 +183,21 @@ const Favourite = ({ navigation }) => {
                             })}
                         </View>
                     ) : null}
+                </View>
+                <View>
+                    <AwesomeAlert
+                        show={showAlert}
+                        showProgress={false}
+                        title="History Cleared"
+                        message="Weather history and data have been cleared."
+                        closeOnTouchOutside={true}
+                        closeOnHardwareBackPress={true}
+                        showCancelButton={false}
+                        showConfirmButton={true}
+                        confirmText="OK"
+                        confirmButtonColor="#DD6B55"
+                        onConfirmPressed={() => setShowAlert(false)}
+                    />
                 </View>
                 <ScrollView
                     className="mt-6 mb-20 mx-[10]"

@@ -7,7 +7,7 @@ const DropdownMenu = ({ visible, onClose, clearStorage }) => {
         if (visible) {
             timer = setTimeout(() => {
                 onClose();
-            }, 5000);
+            }, 50000);
         }
         return () => clearTimeout(timer);
     }, [visible, onClose]);
@@ -46,8 +46,8 @@ const DropdownMenu = ({ visible, onClose, clearStorage }) => {
 const styles = StyleSheet.create({
     overlay: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-end',
         backgroundColor: 'rgba(0, 0, 0, 0.3)',
     },
     menu: {
@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         padding: 10,
         width: 200,
+        height: 300,
         shadowColor: '#000',
         shadowOpacity: 0.2,
         shadowRadius: 4,
@@ -62,6 +63,7 @@ const styles = StyleSheet.create({
     },
     menuItem: {
         padding: 10,
+        paddingVertical: 20,
         fontSize: 16,
     },
 });

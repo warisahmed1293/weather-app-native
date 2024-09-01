@@ -60,6 +60,7 @@ const Favourite = ({ navigation }) => {
         try {
             await AsyncStorage.clear();
             setWeatherHistory([]);
+            setWeather(null);
             Alert.alert('Success', 'Local storage cleared successfully.');
         } catch (error) {
             console.error('Error clearing local storage:', error);
@@ -119,7 +120,7 @@ const Favourite = ({ navigation }) => {
         }
     };
 
-    const handleTextDebounce = useCallback(debounce(handleSearch, 1500), []);
+    const handleTextDebounce = useCallback(debounce(handleSearch, 100), []);
 
     return (
         <ImageBackground
@@ -141,8 +142,8 @@ const Favourite = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
                 <DropdownMenu visible={menuVisible} onClose={() => setMenuVisible(false)} clearStorage={clearLocalStorage} />
-                <View style={{ height: 56 }} className='mx-4 relative z-50'>
-                    <View className='flex-row justify-end items-center rounded-full' style={{ backgroundColor: showSearch ? theme.bgWhite(0.2) : 'transparent' }}>
+                <View className="mx-4 relative z-50 h-[56px]">
+                    <View className="flex-row justify-end items-center rounded-full" style={{ backgroundColor: showSearch ? theme.bgWhite(0.2) : 'transparent' }}>
                         {showSearch ? (
                             <TextInput
                                 onChangeText={handleTextDebounce}

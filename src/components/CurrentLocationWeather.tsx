@@ -4,11 +4,11 @@ import { Location } from '../constant/Location';
 import { fetchWeatherByCoordinates } from '../constant/weatherAPI';
 import LottieView from 'lottie-react-native';
 
-import cloudy_weather from '../assets/lottie/cloudy_weather.json'
-import partialy_cloudy from '../assets/lottie/partialy_cloudy.json'
-import rain from '../assets/lottie/rain.json'
-import sunny_weather from '../assets/lottie/sunny weather.json'
-import thunder_cloud from '../assets/lottie/thunder_cloud.json'
+import cloudy_weather from '../assets/lottie/cloudy_weather.json';
+import partialy_cloudy from '../assets/lottie/partialy_cloudy.json';
+import rain from '../assets/lottie/rain.json';
+import sunny_weather from '../assets/lottie/sunny weather.json';
+import thunder_cloud from '../assets/lottie/thunder_cloud.json';
 
 
 const CurrentLocationWeather = ({ onTimeUpdate, textColor }) => {

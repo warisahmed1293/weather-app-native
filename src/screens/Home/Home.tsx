@@ -5,7 +5,7 @@ import houseImage from '../../assets/houseImage.png';
 import dayBG from '../../assets/dayBG.jpg';
 import nightBG from '../../assets/nightBG.jpg';
 import CurrentLocationWeather from '../../components/CurrentLocationWeather';
-import ModalImage from '../../assets/mainBG.png'
+import ModalImage from '../../assets/mainBG.png';
 
 const { height } = Dimensions.get('window');
 

@@ -1,10 +1,9 @@
 // components/ForcastWeather.js
 
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator, Alert, ImageBackground, Dimensions } from 'react-native';
+import { View, StyleSheet, ActivityIndicator, Alert, Dimensions } from 'react-native';
 import HalfScreenModal from './HalfScreenModal';
 import { Location } from '../constant/Location';
-import backgroundImage from '../assets/mainBG.png'
 
 
 const { height } = Dimensions.get('window');

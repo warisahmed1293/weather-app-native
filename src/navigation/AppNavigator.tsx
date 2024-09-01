@@ -5,7 +5,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from '../screens/Home/Home';
 import Favourite from '../screens/Favourite/Favourite';
 import Account from '../screens/Account/Account';
-import SplashScreen from '../screens/Welcome Screen/SplashScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -55,7 +54,6 @@ const AppNavigator = () => {
             initialRouteName="AppTabs"
             screenOptions={{ headerShown: false }}
         >
-            {/* <Stack.Screen name="Splash" component={SplashScreen} /> */}
             <Stack.Screen name="AppTabs" component={AppTabs} />
         </Stack.Navigator>
     );

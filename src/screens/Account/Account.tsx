@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
 import { useSpring, animated } from '@react-spring/native';
+import LocationScreen from '../../components/LocationScreen';
 
 const Account = () => {
 
@@ -18,6 +19,7 @@ const Account = () => {
                 <Text>Fading Box</Text>
             </AnimatedView>
             <Button title="Toggle" onPress={() => setToggle(!isToggled)} />
+            <LocationScreen />
         </View>
     );
 };
